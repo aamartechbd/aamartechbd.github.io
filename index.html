@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>DMS Features List</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3cbefacc-69b0-4451-8789-ff0fe5d4d469" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1615914143778-1a1a6e50c5dd?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><h1 class="page-title">DMS Features List</h1><p class="page-description"></p></header><div class="page-body"><p id="ce0a7dcb-c2e4-4d45-ae2f-855b88c4c448" class="">
+</p><ol type="1" id="8ca290a9-6297-4ba1-bc0e-f0d896b039dc" class="numbered-list" start="1"><li>Projects <ol type="a" id="b0eabba3-befc-4951-b3e8-41b24ccf95ff" class="numbered-list" start="1"><li>Add New Project</li></ol><ol type="a" id="86881aeb-8b27-4d44-ba9d-a8e2f6340e46" class="numbered-list" start="2"><li>Rename Project</li></ol><ol type="a" id="da6820ad-9a9a-4195-a37d-3c6c0ee69d0d" class="numbered-list" start="3"><li>Archived Project</li></ol><ol type="a" id="ea545ec6-8c26-4a07-987f-322ef331b3d2" class="numbered-list" start="4"><li>Restore Project</li></ol><ol type="a" id="8d7a276a-4893-4e35-b8be-63983d4de8a6" class="numbered-list" start="5"><li>Delete Project</li></ol><ol type="a" id="eb02c50d-b8ee-4492-8ad7-4fa8e356dbfc" class="numbered-list" start="6"><li>Copy Data To Project Task Board</li></ol><ol type="a" id="c766efdd-e9f1-481e-91cd-9d386b90f48f" class="numbered-list" start="7"><li>Archived Project List</li></ol><ol type="a" id="dff60541-877a-43e2-8096-b7a6272d2ee9" class="numbered-list" start="8"><li>Project wise Task Board</li></ol><ol type="a" id="e915b277-6524-40cb-a5bc-6771c1a00e50" class="numbered-list" start="9"><li><span style="border-bottom:0.05em solid">Developers Note: </span><ol type="i" id="c3271f79-5646-4952-87dd-f631a6d5fac2" class="numbered-list" start="1"><li>Model: Project.php</li></ol><ol type="i" id="8323e079-33d8-468b-9576-538eef295f02" class="numbered-list" start="2"><li>View:  admin.boards.index</li></ol><ol type="i" id="325f4539-42ef-4155-b5a0-c2643a413572" class="numbered-list" start="3"><li>Controller: BoardController.php</li></ol><ol type="i" id="a01e5219-6f58-4758-858b-5f7f8813d73f" class="numbered-list" start="4"><li>Methods: index , createProject, updateProject, restoreProject, deleteProject</li></ol></li></ol></li></ol><ol type="1" id="fa88137d-3019-42cd-a9b3-eeaa433bbe20" class="numbered-list" start="2"><li>Task Boards<ol type="a" id="50295f85-31f3-4b1b-a927-7d484779523c" class="numbered-list" start="1"><li>Add New Board</li></ol><ol type="a" id="af7995ec-39f2-4bf4-bfc3-590445b70a8a" class="numbered-list" start="2"><li>Edit Board</li></ol><ol type="a" id="83b8b413-02e1-4fc1-9007-92b85b3dd581" class="numbered-list" start="3"><li>Assign Multiple Data Group</li></ol><ol type="a" id="5500946b-89bf-4ad0-b3f6-cac2793436c0" class="numbered-list" start="4"><li>Client List</li></ol><ol type="a" id="38c61759-d24e-4c30-bd42-b6ddb062baac" class="numbered-list" start="5"><li>Archived Board</li></ol><ol type="a" id="9d2d137d-ec96-4ea1-89f8-b778560f53bc" class="numbered-list" start="6"><li>Restore Board</li></ol><ol type="a" id="d0d65430-b841-4ac1-a40a-90fe0b2730d1" class="numbered-list" start="7"><li>Delete Board</li></ol><ol type="a" id="aa229c63-585a-4c8f-859e-556c9ee098dc" class="numbered-list" start="8"><li>Assign Members to Board</li></ol><ol type="a" id="891f9721-272c-4e4e-8865-3114fbb45b50" class="numbered-list" start="9"><li>Task Board Move to Another Project ( Edit Board)</li></ol><ol type="a" id="1a31cd09-2e8e-4ea1-9fef-69adac3f2c6c" class="numbered-list" start="10"><li>Archived Board List</li></ol><ol type="a" id="17f1a83b-abaf-4e78-8d00-1b83ca1b0520" class="numbered-list" start="11"><li>Board Preview - Kanban</li></ol><ol type="a" id="201475ce-35d6-499b-9e80-b4f8a4298e44" class="numbered-list" start="12"><li><span style="border-bottom:0.05em solid">Developers Note: </span><ol type="i" id="c89b0a12-c67c-47c4-b88e-0e66bb7d5cdf" class="numbered-list" start="1"><li>Model: Board.php</li></ol><ol type="i" id="597818fe-d187-45ef-a4e5-3661a42606ea" class="numbered-list" start="2"><li>View:  admin.boards.kanban</li></ol><ol type="i" id="8e37d4bc-43da-4885-a427-0219a620068c" class="numbered-list" start="3"><li>Controller: BoardController.php</li></ol><ol type="i" id="61c352d6-6de1-4836-bed0-35b4c08c670e" class="numbered-list" start="4"><li>Methods: boards , createBoard, updateBoard, restoreBoard, deleteBoard, addMemberBoard, renderBoardMember, assignDataGroup</li></ol></li></ol></li></ol><ol type="1" id="e32c755a-e939-43dc-9e1e-be0624621e0e" class="numbered-list" start="3"><li>Task List<ol type="a" id="47deb64f-16ff-4138-b593-64edd5a37456" class="numbered-list" start="1"><li>Add New List to Task Board</li></ol><ol type="a" id="18ce2292-947d-429c-a9a7-872c471d90ac" class="numbered-list" start="2"><li>Rename List</li></ol><ol type="a" id="06bf5a5e-152e-4e12-bc25-fd44543498e0" class="numbered-list" start="3"><li>Sort List</li></ol><ol type="a" id="857e2faa-ad6b-4eff-b4c5-620da6a5a084" class="numbered-list" start="4"><li>Archived Project List</li></ol><ol type="a" id="09851678-aad1-42a2-8fd9-be5bfadb215f" class="numbered-list" start="5"><li>Sort Tasks to the List</li></ol><ol type="a" id="7f11a5fd-5891-4798-987c-2046c20317bf" class="numbered-list" start="6"><li>Import Clients to the List</li></ol><ol type="a" id="d52e5c03-9e8d-4b8a-93a4-41218e08bd48" class="numbered-list" start="7"><li><span style="border-bottom:0.05em solid">Developers Note: </span><ol type="i" id="6ee2c493-b7ed-438d-862b-e20667cf2bbc" class="numbered-list" start="1"><li>Model: BoardList.php</li></ol><ol type="i" id="5528792d-1892-4762-ad4a-d89ce3653451" class="numbered-list" start="2"><li>View:  admin.boards.kanban</li></ol><ol type="i" id="2f11dde6-1d48-41ad-812f-2a078363d19c" class="numbered-list" start="3"><li>Controller: BoardController.php</li></ol><ol type="i" id="22e78e4a-7aca-48cd-9502-df557cda19ea" class="numbered-list" start="4"><li>Methods: createList , updateList, deleteList, sortList, importProjectClients</li></ol></li></ol></li></ol><ol type="1" id="8bdd84ff-3e00-4d54-939f-5259917111bc" class="numbered-list" start="4"><li>Tasks<ol type="a" id="f0ad1974-d6e3-4139-a56c-cf00a1a74ee1" class="numbered-list" start="1"><li>Add New Task</li></ol><ol type="a" id="7733428b-ef7f-4f42-ad55-f095d07b4742" class="numbered-list" start="2"><li>Rename Task Title </li></ol><ol type="a" id="1cc90ff4-63fe-46c8-b9ac-0df41aa86d39" class="numbered-list" start="3"><li>Notifications</li></ol><ol type="a" id="e7804b70-71f5-474a-a0e9-5d8929ec5603" class="numbered-list" start="4"><li>Status Assign (Dynamic)</li></ol><ol type="a" id="5318f5c5-a6e9-4289-b682-2c4621b3b500" class="numbered-list" start="5"><li>Priority Assign (Dynamic)</li></ol><ol type="a" id="ddbc1fa9-341c-4e11-b38a-d217b6ba35e9" class="numbered-list" start="6"><li>Set Start Date &amp; Time</li></ol><ol type="a" id="b98567b3-f0c5-4499-ad6a-4230dc96b54d" class="numbered-list" start="7"><li>Set Due Date &amp; Time</li></ol><ol type="a" id="f35ea3d2-0fb1-479d-bb3e-a9b209e4117b" class="numbered-list" start="8"><li>Labels Create</li></ol><ol type="a" id="77188ea7-94db-4123-b253-e67dd7e42009" class="numbered-list" start="9"><li>Labels Assign</li></ol><ol type="a" id="05c21d49-06bd-43be-8e58-2a3eb792153a" class="numbered-list" start="10"><li>Labels Delete</li></ol><ol type="a" id="222ffeb1-8e68-4bc3-9920-a46ab1672981" class="numbered-list" start="11"><li>Description with Editor</li></ol><ol type="a" id="429f7433-7ae1-4f2d-ab11-c8ad66690b95" class="numbered-list" start="12"><li>Post Comments with Editor</li></ol><ol type="a" id="2e04eddb-ba78-4bfc-82c1-5d94feeefd59" class="numbered-list" start="13"><li>Delete Comments</li></ol><ol type="a" id="f6395a06-4161-4030-9c65-0fa517775eef" class="numbered-list" start="14"><li>Attachment Create with Title</li></ol><ol type="a" id="92ad409a-d847-48e3-bead-402e29ed514b" class="numbered-list" start="15"><li>Attachment List in Task Window</li></ol><ol type="a" id="8719cc2a-7412-47e4-a506-e9571ca5d55c" class="numbered-list" start="16"><li>Attachment: Download + View</li></ol><ol type="a" id="6a54bbb0-9a7a-4a58-8aa4-6aa70380cf74" class="numbered-list" start="17"><li>Send Message through <a href="http://Respon.io">Respon.io</a> Channel.</li></ol><ol type="a" id="09a9dedf-1d67-4f51-80dd-b5e80463dc12" class="numbered-list" start="18"><li>Send Email through <a href="http://Respon.io">Respon.io</a> Channel.</li></ol><ol type="a" id="e96255d0-455a-421d-a0dd-c7f6006f18b2" class="numbered-list" start="19"><li>Open <a href="http://Respond.io">Respond.io</a> Conversation</li></ol><ol type="a" id="3bbba68c-efe0-4b2f-98b9-570998141db5" class="numbered-list" start="20"><li><a href="http://Respond.io">Respond.io</a> to DCMS Task window linkup (Automatic Task window Open)</li></ol><ol type="a" id="1e6dc13d-f4b7-4395-ad1e-ba02d98349e8" class="numbered-list" start="21"><li>Copy Task Link &amp; Share</li></ol><ol type="a" id="737208a3-01ef-4634-a75e-04cdd50f9b5b" class="numbered-list" start="22"><li>Move Task to another Board</li></ol><ol type="a" id="1d901aba-b675-480e-bdb6-a447a1af45b0" class="numbered-list" start="23"><li>Archive/Delete Tasks</li></ol><ol type="a" id="6075b8ef-77ce-46b6-a08b-fde66a179eec" class="numbered-list" start="24"><li>Set Reminder Notification </li></ol><ol type="a" id="13c3cf41-a50e-4e2e-87fd-a05bbe47ce92" class="numbered-list" start="25"><li>Show Reminders in Dashbaord</li></ol><ol type="a" id="4e6c0169-16cd-42dd-a22d-6a64b4db6191" class="numbered-list" start="26"><li>Navigate Client Details from the Task window</li></ol><ol type="a" id="f43d8f14-8697-42e5-bb17-026e8e89408e" class="numbered-list" start="27"><li>Activity Log</li></ol><ol type="a" id="81ac69cd-00c3-474d-ad02-4f109960e560" class="numbered-list" start="28"><li>Show total comments &amp; attachment data for the task</li></ol><ol type="a" id="bca5e24b-c247-41f7-a590-42ce954134b5" class="numbered-list" start="29"><li>Drag &amp; Drop task one list to another list</li></ol><ol type="a" id="a8a048bc-5b96-4757-9a6f-e25fa9d3c4ba" class="numbered-list" start="30"><li>Sort Tasks</li></ol><ol type="a" id="3fc53963-3aeb-4d9b-9b3e-d32566926304" class="numbered-list" start="31"><li>Switch Board List Project Wise</li></ol><ol type="a" id="0238df4d-c53e-41ae-83c7-d57305844ce0" class="numbered-list" start="32"><li><span style="border-bottom:0.05em solid">Developers Note: </span><ol type="i" id="e74705c4-40e4-4b1a-b901-5c0205b1e6ec" class="numbered-list" start="1"><li>Model: BoardCard, BoardCardAttachment, BoardCardComment, BoardCardLabel, TaskReminder, BoardCardMember</li></ol><ol type="i" id="b263b6ba-1a23-4e94-8aba-9d2c166bb6e3" class="numbered-list" start="2"><li>View:  admin.boards.kanban</li></ol><ol type="i" id="29952984-e216-4cb6-ba0d-67fe26108f2a" class="numbered-list" start="3"><li>Controller: BoardController.php</li></ol><ol type="i" id="0fb3555b-f3cf-4d95-9e26-5043be912c7c" class="numbered-list" start="4"><li>Methods: createCard , sortCard, renderCards, renderCardInfo , renderCardPrimaryInfo, updateCardDragOtherBoard, updateCardDragSameBoard, updateLabel, renderCardDates, updateTaskDates, moveTask, storeAttachment</li></ol></li></ol></li></ol><ol type="1" id="637df802-a74e-413f-91e4-9d23fefd000b" class="numbered-list" start="5"><li>Cometchat Integration</li></ol><ol type="1" id="9e944eb0-3104-4100-9e2b-bbc1e6569b83" class="numbered-list" start="6"><li>Project Management<ol type="a" id="d066841f-0db7-4540-8818-33d0e4266947" class="numbered-list" start="1"><li>Status Management<ol type="i" id="06557fce-4abd-4926-9c77-7c5f1021f7f2" class="numbered-list" start="1"><li>Create Status with Color Code</li></ol><ol type="i" id="61d815db-e96e-4272-ba9a-367896f3ef98" class="numbered-list" start="2"><li>Edit Status</li></ol><ol type="i" id="2a4c159a-feb4-4771-9abb-80925ae56294" class="numbered-list" start="3"><li>Delete Status</li></ol><ol type="i" id="49225137-f28a-4503-98e9-9e22e91038ba" class="numbered-list" start="4"><li><span style="border-bottom:0.05em solid">Developers Note: </span><ol type="1" id="f8747bd4-1358-414f-a349-e0039fe6fd0e" class="numbered-list" start="1"><li>Model: CardStatus</li></ol><ol type="1" id="0d171a3f-4229-4512-92ae-3858a71adf10" class="numbered-list" start="2"><li>View:  admin.boards.status</li></ol><ol type="1" id="e223507e-116f-41dd-a863-7ff0ac66c2d9" class="numbered-list" start="3"><li>Controller: BoardController</li></ol><ol type="1" id="b5fcff65-a50e-440f-b317-4458104bad41" class="numbered-list" start="4"><li>Methods: status, createStatus, deleteStatus, updateStatus</li></ol></li></ol></li></ol><ol type="a" id="9c13c446-ea89-427d-8b57-786a9d66ab4d" class="numbered-list" start="2"><li>Priority Management<ol type="i" id="70477ff6-0193-4bbf-aa4e-78482d93053c" class="numbered-list" start="1"><li>Create Priority with Color Code</li></ol><ol type="i" id="f62ba444-26d8-4b50-8399-b95179428a7e" class="numbered-list" start="2"><li>Edit Priority</li></ol><ol type="i" id="bdef8bbb-bf6d-496a-8d5c-16a61329ba6b" class="numbered-list" start="3"><li>Delete Priority</li></ol><ol type="i" id="0409540e-6592-4105-8033-db6f11989fd3" class="numbered-list" start="4"><li><span style="border-bottom:0.05em solid">Developers Note: </span><ol type="1" id="60244038-9efb-462c-97ae-0660c1c2fc8c" class="numbered-list" start="1"><li>Model: CardPriority</li></ol><ol type="1" id="de2b24bb-6e63-4f91-b03f-6d8e0372db38" class="numbered-list" start="2"><li>View:  admin.boards.priority</li></ol><ol type="1" id="d7ca4b9a-0dd3-4944-8509-a368cc2e3ee2" class="numbered-list" start="3"><li>Controller: BoardController</li></ol><ol type="1" id="9e87bb45-8ba8-4bc1-ba33-d479ddda7a3c" class="numbered-list" start="4"><li>Methods: priority, createPriority, deletePriority, updatePriority</li></ol></li></ol></li></ol></li></ol><ol type="1" id="328b59d9-5ed9-40e4-9f88-7832c69f1116" class="numbered-list" start="7"><li>Quotes<ol type="a" id="6ba0361a-4e66-4687-9f8c-78520a1b90b0" class="numbered-list" start="1"><li>Add Quotes</li></ol><ol type="a" id="db47855b-444a-4b70-8c8e-5c20e2edb71a" class="numbered-list" start="2"><li>Edit Quotes</li></ol><ol type="a" id="03a984b2-7ba0-4004-ac4b-2feddac35a3a" class="numbered-list" start="3"><li>Delete Quotes</li></ol><ol type="a" id="d5085350-9606-43f9-916f-b4b2fa0148cb" class="numbered-list" start="4"><li>Published/Draft Quotes</li></ol><ol type="a" id="6910fc4f-ddb5-447c-875f-868bd17aa25f" class="numbered-list" start="5"><li>Show Quotes in Dashbaord</li></ol><ol type="a" id="a6360f7b-32cb-49c5-a9b6-71db10e2bcbb" class="numbered-list" start="6"><li><span style="border-bottom:0.05em solid">Developers Note: </span><ol type="i" id="1b513ef8-b7bb-4c97-8b0c-459d92c15b3d" class="numbered-list" start="1"><li>Model: Quotes</li></ol><ol type="i" id="3b899c6a-bbc3-4053-8abb-b9373f5889d9" class="numbered-list" start="2"><li>View:   admin.boards.quotes.index</li></ol><ol type="i" id="0f8703ec-9e13-4706-80f4-acbdf50bf6ed" class="numbered-list" start="3"><li>Controller: BoardController</li></ol><ol type="i" id="2898a2a1-6714-4aff-ba06-58a75fa8727b" class="numbered-list" start="4"><li>Methods: quotes, createQuotes, deleteQuotes, updateQuotes</li></ol></li></ol></li></ol><ol type="1" id="9e13dacc-ebe6-4b26-a6d8-e0f9d63638b3" class="numbered-list" start="8"><li>Notice Board<ol type="a" id="e4d147d0-b034-41ae-aa22-911d16d68e4a" class="numbered-list" start="1"><li>Add Notices</li></ol><ol type="a" id="e4c9eb0a-cba2-4318-87e0-d3046233ad89" class="numbered-list" start="2"><li>Edit Notices</li></ol><ol type="a" id="c34a3afc-3c01-4187-897b-f146676b6113" class="numbered-list" start="3"><li>Delete Notices</li></ol><ol type="a" id="569ae7a6-bedd-4767-9fbf-aea8a43a6c6c" class="numbered-list" start="4"><li>Published/Draft Notices</li></ol><ol type="a" id="d9791ebf-b8fd-4b51-80eb-14d0567cb7ed" class="numbered-list" start="5"><li>Show Notices in Dashboard</li></ol><ol type="a" id="bbd7371c-192c-4ee0-b121-7070ed4a00e6" class="numbered-list" start="6"><li><span style="border-bottom:0.05em solid">Developers Note: </span><ol type="i" id="a4c3affb-636f-4bd4-bf81-152d29658abe" class="numbered-list" start="1"><li>Model: NoticeBoard</li></ol><ol type="i" id="5bbde97b-f142-414a-ac78-fa27b50eb2db" class="numbered-list" start="2"><li>View:   admin.boards.notices.index</li></ol><ol type="i" id="e2878607-a09d-46df-a80e-43886b77191b" class="numbered-list" start="3"><li>Controller: BoardController</li></ol><ol type="i" id="564315d1-3479-4323-9da1-6e6974826942" class="numbered-list" start="4"><li>Methods: notice, createNotice, deleteNotice, updateNotice</li></ol></li></ol></li></ol><ol type="1" id="e445fdee-6ffb-4c62-ae44-331a6f94e0c0" class="numbered-list" start="9"><li>Access Management<ol type="a" id="631d24f8-a9d5-43ee-b689-944e96a4272d" class="numbered-list" start="1"><li>Project Management<ol type="i" id="eabb465d-943c-46fc-a926-cbb80ee42224" class="numbered-list" start="1"><li>Copy Client to Project</li></ol><ol type="i" id="738243c8-f9c1-4467-9c46-b2eb84962e23" class="numbered-list" start="2"><li>Project Settings</li></ol></li></ol><ol type="a" id="31cbdba3-487c-48f4-b48c-70cb6479f909" class="numbered-list" start="2"><li>Projects<ol type="a" id="c9f61df0-1b44-4be6-a24e-1d8442d3a237" class="numbered-list" start="1"><li>Show Project Tab</li></ol><ol type="a" id="9d41197f-2a48-4e22-9c7a-e6789bf9d96e" class="numbered-list" start="2"><li>Show All Projects</li></ol><ol type="a" id="49af12e0-1189-450f-aa5e-4d8a9b9ebc54" class="numbered-list" start="3"><li>Create Project</li></ol><ol type="a" id="9da8a3f5-ff9f-4b40-bf0f-374dd6856711" class="numbered-list" start="4"><li>Edit Project</li></ol><ol type="a" id="df52284b-9e80-421e-a01a-5926d84def00" class="numbered-list" start="5"><li>Delete/Archive Project</li></ol><ol type="a" id="b56b41ae-c6f9-4658-a0ab-947150025292" class="numbered-list" start="6"><li>Restore Project</li></ol><ol type="a" id="4791c31c-2293-46c1-ac32-36635b68d30a" class="numbered-list" start="7"><li>Client List Update</li></ol></li></ol><ol type="a" id="fefc9983-b71d-470a-a1eb-f6f0a1090802" class="numbered-list" start="3"><li>Task Boards<ol type="a" id="19192a9a-62a7-48be-aa4b-e63e3a79aded" class="numbered-list" start="1"><li>Board Preview</li></ol><ol type="a" id="629fdbab-d949-4a54-8fb7-871902e30ad9" class="numbered-list" start="2"><li>Create Board</li></ol><ol type="a" id="8c7a4d2c-ef9e-4c1e-a282-f0c6effc4b69" class="numbered-list" start="3"><li>Edit Board</li></ol><ol type="a" id="b789fedb-c730-4b6f-b0a2-c2a3e29d94db" class="numbered-list" start="4"><li>Delete/Archive Board</li></ol><ol type="a" id="505d44c1-f292-4b74-8f09-dd48f35b9702" class="numbered-list" start="5"><li>Restore Board</li></ol><ol type="a" id="146c83f1-4c45-474b-8225-c6c65a1b2a92" class="numbered-list" start="6"><li>Add/Remove to Members Board</li></ol></li></ol><ol type="a" id="736ae0f7-84d7-483b-9cb6-cdf71eced54d" class="numbered-list" start="4"><li>Task List<ol type="a" id="7a00c0a6-5cd2-48cf-8612-1793209e86ca" class="numbered-list" start="1"><li>Create Task List</li></ol><ol type="a" id="9c5e5750-8a2c-49c1-b1f0-c6abea6ed46a" class="numbered-list" start="2"><li>Edit Task List</li></ol><ol type="a" id="50837c6f-f47c-40a9-973b-fcb25512259f" class="numbered-list" start="3"><li>Import Client</li></ol><ol type="a" id="cd2f9f4b-1f9e-4647-b5a3-7310d894c133" class="numbered-list" start="4"><li>Delete/Archive List</li></ol></li></ol></li></ol><ol type="1" id="59ce9feb-eb07-4f7c-b27d-71c2db1467f5" class="numbered-list" start="10"><li>Notifications<ol type="a" id="d00fc706-b5a3-4afa-8402-80260a8d7575" class="numbered-list" start="1"><li>Email</li></ol><ol type="a" id="39325c8a-2cd3-4ac1-bde1-270057ff042a" class="numbered-list" start="2"><li>Top Notification Bell Icon Panel</li></ol><ol type="a" id="af6811a0-35fa-4b46-ac5e-3dbb6d459e6b" class="numbered-list" start="3"><li><span style="border-bottom:0.05em solid">Developers Note: </span><ol type="i" id="c91e367f-33bb-4856-ac36-fd23c8729270" class="numbered-list" start="1"><li>Model: Notification</li></ol><ol type="i" id="3d56b0f5-172f-4953-9f1d-c6bfbdc96668" class="numbered-list" start="2"><li>View:   n\A</li></ol><ol type="i" id="faee3c1e-3b55-4ad6-93b3-b8d6f3d6d307" class="numbered-list" start="3"><li>Controller: BoardController</li></ol><ol type="i" id="2de4c0ab-a49c-4e19-876b-821946f77101" class="numbered-list" start="4"><li>Methods: sendNotification, clearNotification</li></ol></li></ol></li></ol></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
